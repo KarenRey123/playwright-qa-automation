@@ -10,6 +10,7 @@ test('Login exitoso en SauceDemo', async ({ page }) => {
     validLoginData.username,
     validLoginData.password
 );
-    await expect(page).toHaveURL(/inventory/);
+    await expect(page).toHaveURL(/inventory/); 
+    
 
 });
