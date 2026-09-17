@@ -25,4 +25,4 @@ Feature: Compra de productos
     And el usuario ha agregado un producto al carrito
     And el usuario se encuentra en el formulario de checkout
     When el usuario intenta continuar sin completar la información requerida
-    Then debería mostrarse un mensaje indicando que la información es obligatoria
+    Then debería mostrarse un mensaje indicando que la información es obligatoria    

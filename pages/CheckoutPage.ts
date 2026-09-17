@@ -6,6 +6,8 @@ export class CheckoutPage {
     readonly lastNameInput: Locator;
     readonly postalCodeInput: Locator;
     readonly continueButton: Locator;
+    readonly finishButton: Locator;
+    readonly confirmationMessage: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -13,6 +15,8 @@ export class CheckoutPage {
         this.lastNameInput = page.locator('[data-test="lastName"]');
         this.postalCodeInput = page.locator('[data-test="postalCode"]');
         this.continueButton = page.locator('[data-test="continue"]');
+        this.finishButton = page.locator('[data-test="finish"]');
+        this.confirmationMessage = page.locator('[data-test="complete-header"]');
     }
 
     async fillCheckoutInformation(
@@ -27,7 +31,15 @@ export class CheckoutPage {
     }
 
     async continueToOverview() {
-    await this.continueButton.click();
+    await this.continueButton.click();    
+    }
+
+    async finishPurchase() {
+    await this.finishButton.click();
+    }
+
+    async validatePurchaseConfirmation() {
+    await expect(this.confirmationMessage).toHaveText('Thank you for your order!');
     }
 
 }

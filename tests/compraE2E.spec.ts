@@ -31,7 +31,7 @@ test('Compra E2E de un producto', async ({ page }) => {
     checkoutData.lastName,
     checkoutData.postalCode
     );
-
     await checkoutPage.continueToOverview();
-
+    await checkoutPage.finishPurchase();
+    await checkoutPage.validatePurchaseConfirmation();
 });
